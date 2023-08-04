@@ -12,7 +12,7 @@ class CustomCardHome extends StatelessWidget {
         child: Stack(
           children: [
             Container(
-              height: 150,
+              height: 145,
               decoration: BoxDecoration(
                   color: Colors.purple[400],
                   borderRadius: BorderRadius.circular(30)),
@@ -33,7 +33,7 @@ class CustomCardHome extends StatelessWidget {
             ),
             Positioned(
               top: -20,
-              right: -20,
+              right: -30,
               child: Container(
                 height: 160,
                 width: 150,

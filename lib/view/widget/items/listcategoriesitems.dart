@@ -5,8 +5,8 @@ import 'package:mch/data/model/categoriesmodel.dart';
 import 'package:mch/linkapi.dart';
 import 'package:flutter_svg/svg.dart';
 
-class ListCategoriesHome extends StatelessWidget {
-  const ListCategoriesHome({super.key});
+class ListCategoriesItems extends StatelessWidget {
+  const ListCategoriesItems({super.key});
 
   @override
   Widget build(BuildContext context) {

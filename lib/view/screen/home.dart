@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mch/controller/homecontroller.dart';
 import 'package:mch/core/class/handlingdataview.dart';
+import 'package:mch/view/widget/customappbar.dart';
 
 import 'package:mch/view/widget/home/customcardhome.dart';
 import 'package:mch/view/widget/home/customtitlehome.dart';
 
-import '../../widget/home/customappbar.dart';
-import '../../widget/home/listcategorieshome.dart';
-import '../../widget/home/listitemshome.dart';
+import '../widget/home/listcategorieshome.dart';
+import '../widget/home/listitemshome.dart';
+
+
 
 class Home extends GetView<HomeControllerInp> {
   const Home({super.key});
@@ -31,7 +33,8 @@ class Home extends GetView<HomeControllerInp> {
                           onPressedSearch: () {}),
                       const CustomCardHome(
                           title: "A summer surprise", body: "Cashback 20%"),
-                          const ListCategoriesHome(),
+                     const CustomTilteHome(title: "Categories"),
+                      const ListCategoriesHome(),
                       const SizedBox(height: 10),
                       const CustomTilteHome(title: "Product for you"),
                       const SizedBox(height: 10),

@@ -1,12 +1,15 @@
 import 'package:get/get.dart';
 import 'package:mch/core/class/statusrequest.dart';
+import 'package:mch/core/constant/routes.dart';
 import 'package:mch/core/functions/handlingdatacontroler.dart';
 import 'package:mch/core/services/services.dart';
 import 'package:mch/data/datasource/remote/homedata.dart';
 
+
 abstract class HomeController extends GetxController {
   intialData();
   getData();
+  goToItems(List categories,int selectedcat);
 }
 
 class HomeControllerInp extends HomeController {
@@ -42,7 +45,17 @@ class HomeControllerInp extends HomeController {
   }
 
   @override
+  goToItems( categories,selectedcat) {
+    Get.toNamed(Approutes.items,arguments: {
+      "categories":categories,
+      "selectedcat":selectedcat,
+
+    });
+  }
+
+  @override
   void onInit() {
+   
     getData();
     intialData();
     super.onInit();
