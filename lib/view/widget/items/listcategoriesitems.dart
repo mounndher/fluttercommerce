@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mch/controller/homecontroller.dart';
+
+import 'package:mch/controller/itemscontroller.dart';
 import 'package:mch/data/model/categoriesmodel.dart';
-import 'package:mch/linkapi.dart';
-import 'package:flutter_svg/svg.dart';
 
 class ListCategoriesItems extends StatelessWidget {
   const ListCategoriesItems({super.key});
 
   @override
   Widget build(BuildContext context) {
-    HomeControllerInp controller = Get.put(HomeControllerInp());
+    ItemControllerInp controller = Get.put(ItemControllerInp());
     return Container(
       padding: EdgeInsets.only(left: 10, top: 10),
       height: 100,
@@ -29,34 +28,30 @@ class ListCategoriesItems extends StatelessWidget {
   }
 }
 
-class Categories extends GetView<HomeControllerInp> {
+class Categories extends GetView<ItemControllerInp> {
   final Categoriesmodel categoriesmodel;
   final int? i;
-  const  Categories({super.key, required this.categoriesmodel,required this.i});
+  const Categories({super.key, required this.categoriesmodel, required this.i});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        controller.goToItems(
-          controller.categories,i!);
+        controller.changeCat(i!);
       },
       child: Column(
         children: [
-          Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: const Color.fromARGB(255, 239, 201, 246)),
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            height: 70,
-            width: 70,
-            child: SvgPicture.network(
-                "${AppLink.imagecategories}/${categoriesmodel.categoriesImage}"),
-          ),
-          Text(
-            '${categoriesmodel.categoriesName}',
-            style: const TextStyle(fontSize: 13, color: Colors.black),
-          )
+          GetBuilder<ItemControllerInp>(builder: (controller)=> Container(
+              padding: const EdgeInsets.only(right: 10,left: 10,bottom: 5),
+              decoration: controller.selectedcat == i
+                  ? const BoxDecoration(
+                      border: Border(
+                          bottom: (BorderSide(width: 3, color: Colors.purple))))
+                  : null,
+              child: Text(
+                '${categoriesmodel.categoriesName}',
+                style: const TextStyle(fontSize: 20, color: Colors.black),
+              )),)
         ],
       ),
     );
